@@ -51,6 +51,6 @@ def main():
             print("Invalid command. Please enter a valid option.")
 
 if __name__ == "__main__":
-    main()
+    main() 
 
 
