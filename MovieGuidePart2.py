@@ -1,4 +1,4 @@
-print("The Movie List Program")
+print("The Movie List Program \n")
 
 
 def create_movies_file():
@@ -10,11 +10,11 @@ def create_movies_file():
 create_movies_file()
 
 def display_menu():
-    print("==== Movie Library ====")
+    print("==== COMMAND MENU ====")
     print("1. List all movies")
     print("2. Add a movie")
     print("3. Delete a movie")
-    print("4. Exit")
+    print("4. Exit Program ")
 
 def read_movies_file():
     movie_list = []
@@ -29,14 +29,12 @@ def display_titles(movie_list):
         print(f"{idx}. {title}")
 
 def add_title(movie_list):
-    title = input("Enter the title to add: ").title()
+    title = input("Enter the title to add: ").capitalize()
     movie_list.append(title)
-    print(f"{title} has been added to the list.")
-    display_titles(movie_list)
+    print(f"{title} has been added.")
     write_movies_file(movie_list)
 
 def delete_title(movie_list):
-    display_titles(movie_list)
     try:
         index = int(input("Enter the number of the title to delete: ")) - 1
         if 0 <= index < len(movie_list):
@@ -47,7 +45,6 @@ def delete_title(movie_list):
             print("Invalid number.")
     except ValueError:
         print("Invalid input. Please enter a number.")
-    display_titles(movie_list)
 
 def write_movies_file(movie_list):
     with open("movies.txt", "w") as file:
@@ -56,9 +53,9 @@ def write_movies_file(movie_list):
 
 def main():
     movie_list = read_movies_file()
-    print()
+    display_menu()
     while True:
-        display_menu()
+        print()
         choice = input("Command: ")
         
         if choice == "1":
@@ -68,7 +65,7 @@ def main():
         elif choice == "3":
             delete_title(movie_list)
         elif choice == "4":
-            print("Exiting the program. Goodbye!")
+            print("Goodbye!")
             break
         else:
             print("Invalid command. Please enter a valid option 1, 2, 3, or 4.")
