@@ -29,7 +29,7 @@ def display_titles(movie_list):
         print(f"{idx}. {title}")
 
 def add_title(movie_list):
-    title = input("Enter the title to add: ").capitalize()
+    title = input("Enter the title to add: ")
     movie_list.append(title)
     print(f"{title} has been added.")
     write_movies_file(movie_list)
